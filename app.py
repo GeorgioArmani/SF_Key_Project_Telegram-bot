@@ -5,8 +5,15 @@ from extensions import APIException, CurrencyConverter
 bot = telebot.TeleBot(TOKEN)
 
 
-@bot.message_handler(commands=['start', 'help'])
-def start_help(message: telebot.types.Message):
+@bot.message_handler(commands=['start'])
+def start_bot(message: telebot.types.Message):
+    text = 'Привет! Я - бот George_IV! Я конвертирую валюты евро, доллар и рубль.\n\
+Я знаю команды /start, /help (сообщаю, в каком формате пользователю вводить запрос) и /values (вывожу список доступных для конвертации валют)'
+    bot.reply_to(message, text)
+
+
+@bot.message_handler(commands=['help'])
+def help_me(message: telebot.types.Message):
     text = 'Для запуска работы введите команду следующего формата:\n<название валюты> \
 <название валюты, в которую нужно перевести> \
 <количество переводимой валюты>\nСписок доступных валют: /values'
