@@ -21,7 +21,7 @@ def help_me(message: telebot.types.Message):
 
 
 @bot.message_handler(commands=['values'])
-def values(message: telebot.types.Message):
+def values_list(message: telebot.types.Message):
     text = 'Доступные валюты:'
     for key in keys.keys():
         text = '\n'.join((text, key, ))
